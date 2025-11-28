@@ -1,0 +1,1411 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glamour Lab - Tu laboratorio de belleza. Productos de maquillaje de alta calidad y tutoriales profesionales.">
+    <title>Glamour Lab - Maquillaje y Belleza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== VARIABLES Y RESET ===== */
+        :root {
+            --rosa-oscuro: #d4a5b5;
+            --rosa-claro: #f8e8ee;
+            --dorado: #d4af37;
+            --negro: #2c2c2c;
+            --blanco: #ffffff;
+            --gris: #8a8a8a;
+            --gris-claro: #f5f5f5;
+            --sombra: 0 5px 15px rgba(0,0,0,0.1);
+            --transicion: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== ESTRUCTURA GENERAL ===== */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--negro);
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--negro);
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--rosa-oscuro), var(--dorado));
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--gris);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            color: var(--blanco);
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transicion);
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover, .btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 165, 181, 0.3);
+            outline: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--rosa-oscuro);
+            color: var(--rosa-oscuro);
+        }
+
+        .btn-outline:hover, .btn-outline:focus {
+            background: var(--rosa-oscuro);
+            color: var(--blanco);
+        }
+
+        /* ===== HEADER Y NAVEGACIÓN ===== */
+        header {
+            background-color: var(--blanco);
+            box-shadow: var(--sombra);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--negro);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--dorado);
+            margin-right: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--negro);
+            font-weight: 500;
+            transition: var(--transicion);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            transition: var(--transicion);
+        }
+
+        nav ul li a:hover, nav ul li a:focus {
+            color: var(--rosa-oscuro);
+            outline: none;
+        }
+
+        nav ul li a:hover:after, nav ul li a:focus:after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+        }
+
+        .nav-icons a {
+            color: var(--negro);
+            margin-left: 20px;
+            font-size: 1.2rem;
+            transition: var(--transicion);
+            position: relative;
+            padding: 5px;
+        }
+
+        .nav-icons a:hover, .nav-icons a:focus {
+            color: var(--rosa-oscuro);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--rosa-oscuro);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--negro);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2087&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--negro);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* ===== SECCIÓN MARCAS ===== */
+        .brands {
+            background-color: var(--rosa-claro);
+            padding: 60px 0;
+        }
+
+        .brands h2 {
+            margin-bottom: 40px;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .brand-card {
+            background: var(--blanco);
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transicion);
+        }
+
+        .brand-card:hover, .brand-card:focus-within {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .brand-logo {
+            font-size: 2.5rem;
+            color: var(--rosa-oscuro);
+            margin-bottom: 15px;
+        }
+
+        /* ===== SECCIÓN CATEGORÍAS ===== */
+        .categories {
+            background-color: var(--blanco);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .category-card:hover, .category-card:focus-within {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 30px;
+            color: white;
+        }
+
+        .category-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* ===== SECCIÓN PRODUCTOS ===== */
+        .products {
+            background-color: var(--rosa-claro);
+        }
+
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background: var(--blanco);
+            border: 2px solid var(--rosa-oscuro);
+            color: var(--rosa-oscuro);
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transicion);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover, .filter-btn:focus {
+            background: var(--rosa-oscuro);
+            color: var(--blanco);
+            outline: none;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            position: relative;
+        }
+
+        .product-card:hover, .product-card:focus-within {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--dorado);
+            color: var(--blanco);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img, 
+        .product-card:focus-within .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-actions,
+        .product-card:focus-within .product-actions {
+            opacity: 1;
+        }
+
+        .product-action-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rosa-oscuro);
+            transition: var(--transicion);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .product-action-btn:hover, .product-action-btn:focus {
+            background: var(--rosa-oscuro);
+            color: var(--blanco);
+            outline: none;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-brand {
+            color: var(--gris);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--negro);
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--rosa-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            color: var(--dorado);
+            margin-bottom: 15px;
+        }
+
+        .product-colors {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--blanco);
+            box-shadow: 0 0 0 1px #ddd;
+            cursor: pointer;
+        }
+
+        /* ===== SECCIÓN TUTORIALES ===== */
+        .tutorials {
+            background-color: var(--blanco);
+        }
+
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tutorial-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .tutorial-card:hover, .tutorial-card:focus-within {
+            transform: translateY(-10px);
+        }
+
+        .tutorial-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .tutorial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tutorial-card:hover .tutorial-image img,
+        .tutorial-card:focus-within .tutorial-image img {
+            transform: scale(1.1);
+        }
+
+        .tutorial-info {
+            padding: 20px;
+        }
+
+        .tutorial-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--negro);
+        }
+
+        .tutorial-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gris);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* ===== SECCIÓN CONTACTO ===== */
+        .contact {
+            background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--blanco) 100%);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--negro);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            color: var(--blanco);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--negro);
+        }
+
+        .contact-form {
+            background: var(--blanco);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--sombra);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--negro);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transicion);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--rosa-oscuro);
+            box-shadow: 0 0 0 2px rgba(212, 165, 181, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--blanco);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--rosa-oscuro), var(--dorado));
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+
+        .footer-links a:hover, .footer-links a:focus {
+            color: var(--rosa-oscuro);
+            outline: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--blanco);
+            transition: var(--transicion);
+            text-decoration: none;
+        }
+
+        .social-links a:hover, .social-links a:focus {
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 5px 0 0 5px;
+            color: var(--blanco);
+            font-size: 1rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: #bbb;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .newsletter-btn {
+            background: linear-gradient(45deg, var(--rosa-oscuro), var(--dorado));
+            color: var(--blanco);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .newsletter-btn:hover, .newsletter-btn:focus {
+            opacity: 0.9;
+            outline: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* ===== ACCESIBILIDAD ===== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--blanco);
+                flex-direction: column;
+                transition: left 0.3s ease;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+                z-index: 999;
+                padding: 20px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .product-filters {
+                flex-wrap: wrap;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+
+        /* ===== ANIMACIONES ADICIONALES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="Glamour Lab - Inicio">
+                <i class="fas fa-palette"></i>
+                <span>Glamour Lab</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav role="navigation" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#tutoriales">Tutoriales</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-icons">
+                <a href="#" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="#" aria-label="Cuenta de usuario">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" aria-live="polite">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1>Descubre tu belleza única</h1>
+                    <p>En Glamour Lab encontrarás los mejores productos de maquillaje y tutoriales profesionales para realzar tu belleza natural.</p>
+                    <div class="hero-buttons">
+                        <a href="#productos" class="btn">Explorar productos</a>
+                        <a href="#tutoriales" class="btn btn-outline">Ver tutoriales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas Section -->
+        <section class="brands" aria-labelledby="marcas-titulo">
+            <div class="container">
+                <h2 id="marcas-titulo">Marcas destacadas</h2>
+                <div class="brands-grid">
+                    <div class="brand-card fade-in delay-1">
+                        <div class="brand-logo">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Luxury Cosmetics</h3>
+                    </div>
+                    <div class="brand-card fade-in delay-2">
+                        <div class="brand-logo">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <h3>Nature Glow</h3>
+                    </div>
+                    <div class="brand-card fade-in delay-3">
+                        <div class="brand-logo">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Royal Beauty</h3>
+                    </div>
+                    <div class="brand-card fade-in delay-1">
+                        <div class="brand-logo">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>Pure Skin</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías Section -->
+        <section class="categories" id="categorias" aria-labelledby="categorias-titulo">
+            <div class="container">
+                <h2 id="categorias-titulo">Nuestras categorías</h2>
+                <div class="categories-grid">
+                    <article class="category-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Productos para labios" class="category-image">
+                        <div class="category-overlay">
+                            <h3>Labios</h3>
+                            <p>Labiales, gloss y delineadores</p>
+                        </div>
+                    </article>
+                    <article class="category-card fade-in delay-1">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="Productos para ojos" class="category-image">
+                        <div class="category-overlay">
+                            <h3>Ojos</h3>
+                            <p>Sombras, máscaras y delineadores</p>
+                        </div>
+                    </article>
+                    <article class="category-card fade-in delay-2">
+                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Productos para rostro" class="category-image">
+                        <div class="category-overlay">
+                            <h3>Rostro</h3>
+                            <p>Bases, correctores y rubores</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Section -->
+        <section class="products" id="productos" aria-labelledby="productos-titulo">
+            <div class="container">
+                <h2 id="productos-titulo">Productos destacados</h2>
+                
+                <div class="product-filters" role="tablist" aria-label="Filtros de productos">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                    <button class="filter-btn" data-filter="labios" role="tab" aria-selected="false">Labios</button>
+                    <button class="filter-btn" data-filter="ojos" role="tab" aria-selected="false">Ojos</button>
+                    <button class="filter-btn" data-filter="rostro" role="tab" aria-selected="false">Rostro</button>
+                </div>
+                
+                <div class="products-grid">
+                    <article class="product-card fade-in" data-category="labios">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1915&q=80" alt="Labial líquido mate color rojo intenso">
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn" aria-label="Agregar a favoritos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action-btn" aria-label="Ver detalles">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-brand">Luxury Cosmetics</p>
+                            <h3>Labial Líquido Mate</h3>
+                            <div class="product-price">$24.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="product-colors">
+                                <div class="color-option" style="background-color: #c41e3a;" title="Rojo intenso"></div>
+                                <div class="color-option" style="background-color: #d87093;" title="Rosa suave"></div>
+                                <div class="color-option" style="background-color: #8b4513;" title="Marrón terroso"></div>
+                            </div>
+                            <button class="btn" aria-label="Agregar Labial Líquido Mate al carrito">Agregar al carrito</button>
+                        </div>
+                    </article>
+                    
+                    <article class="product-card fade-in delay-1" data-category="ojos">
+                        <div class="product-badge">Más vendido</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1596704013708-f87cb4d1c95a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Paleta de sombras de ojos con tonos neutros">
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn" aria-label="Agregar a favoritos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action-btn" aria-label="Ver detalles">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-brand">Nature Glow</p>
+                            <h3>Paleta de Sombras Neutras</h3>
+                            <div class="product-price">$32.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn" aria-label="Agregar Paleta de Sombras Neutras al carrito">Agregar al carrito</button>
+                        </div>
+                    </article>
+                    
+                    <article class="product-card fade-in delay-2" data-category="rostro">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Base de maquillaje de cobertura media">
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn" aria-label="Agregar a favoritos">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action-btn" aria-label="Ver detalles">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-brand">Royal Beauty</p>
+                            <h3>Base Líquida Mate</h3>
+                            <div class="product-price">$29.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="product-colors">
+                                <div class="color-option" style="background-color: #f5d0c4;" title="Claro"></div>
+                                <div class="color-option" style="background-color: #e0ac9d;" title="Medio"></div>
+                                <div class="color-option" style="background-color: #c6866c;" title="Oscuro"></div>
+                            </div>
+                            <button class="btn" aria-label="Agregar Base Líquida Mate al carrito">Agregar al carrito</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tutoriales Section -->
+        <section class="tutorials" id="tutoriales" aria-labelledby="tutoriales-titulo">
+            <div class="container">
+                <h2 id="tutoriales-titulo">Tutoriales de belleza</h2>
+                <div class="tutorials-grid">
+                    <article class="tutorial-card fade-in">
+                        <div class="tutorial-image">
+                            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tutorial de maquillaje para ojos ahumados">
+                        </div>
+                        <div class="tutorial-info">
+                            <h3>Ojos Ahumados Perfectos</h3>
+                            <div class="tutorial-meta">
+                                <span><i class="far fa-clock"></i> 15 min</span>
+                                <span><i class="far fa-user"></i> Ana López</span>
+                            </div>
+                            <p>Aprende a crear un look de ojos ahumados profesional en pocos pasos.</p>
+                            <a href="#" class="btn btn-outline">Ver tutorial</a>
+                        </div>
+                    </article>
+                    
+                    <article class="tutorial-card fade-in delay-1">
+                        <div class="tutorial-image">
+                            <img src="https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tutorial de base de maquillaje impecable">
+                        </div>
+                        <div class="tutorial-info">
+                            <h3>Base Impecable</h3>
+                            <div class="tutorial-meta">
+                                <span><i class="far fa-clock"></i> 10 min</span>
+                                <span><i class="far fa-user"></i> Carla Martínez</span>
+                            </div>
+                            <p>Descubre los secretos para aplicar la base de maquillaje de forma perfecta.</p>
+                            <a href="#" class="btn btn-outline">Ver tutorial</a>
+                        </div>
+                    </article>
+                    
+                    <article class="tutorial-card fade-in delay-2">
+                        <div class="tutorial-image">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Tutorial de labiales de larga duración">
+                        </div>
+                        <div class="tutorial-info">
+                            <h3>Labiales que Duran</h3>
+                            <div class="tutorial-meta">
+                                <span><i class="far fa-clock"></i> 8 min</span>
+                                <span><i class="far fa-user"></i> Sofía Rodríguez</span>
+                            </div>
+                            <p>Técnicas para que tu labial se mantenga intacto durante horas.</p>
+                            <a href="#" class="btn btn-outline">Ver tutorial</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Section -->
+        <section class="contact" id="contacto" aria-labelledby="contacto-titulo">
+            <div class="container">
+                <h2 id="contacto-titulo">Contáctanos</h2>
+                <div class="contact-container">
+                    <div class="contact-info fade-in">
+                        <h3>Estamos aquí para ayudarte</h3>
+                        <p>¿Tienes preguntas sobre nuestros productos o necesitas asesoramiento? No dudes en contactarnos.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Dirección</h4>
+                                    <p>Av. Belleza 123, Ciudad Glamour</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Teléfono</h4>
+                                    <p>+1 234 567 890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>info@glamourlab.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form fade-in delay-1">
+                        <form id="form-contacto">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="asunto">Asunto</label>
+                                <input type="text" id="asunto" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" class="form-control" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Glamour Lab</h3>
+                    <p>Tu destino para productos de belleza de alta calidad y tutoriales profesionales.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Síguenos en Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#categorias">Categorías</a></li>
+                        <li><a href="#tutoriales">Tutoriales</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Políticas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Política de envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas y novedades.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Glamour Lab. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                const isExpanded = nav.classList.contains('active');
+                menuToggle.setAttribute('aria-expanded', isExpanded);
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Filtros de productos
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filtrar productos
+                    productCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Animación de elementos al hacer scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = "1";
+                        element.style.transform = "translateY(0)";
+                    }
+                });
+            };
+            
+            // Configurar elementos para animación
+            fadeElements.forEach(element => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(20px)";
+                element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            });
+            
+            // Ejecutar al cargar y al hacer scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Ejecutar al cargar la página
+            
+            // Manejo del formulario de contacto
+            const contactForm = document.getElementById('form-contacto');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+                    this.reset();
+                });
+            }
+            
+            // Manejo del formulario de newsletter
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('.newsletter-input');
+                    alert(`¡Gracias por suscribirte con el email: ${emailInput.value}!`);
+                    emailInput.value = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
